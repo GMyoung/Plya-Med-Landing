@@ -559,7 +559,7 @@ function TrustStrip() {
 function CartDrawer({ open, cart, total, onClose, onIncrease, onDecrease, onRemove }) {
   return (
     <aside className={`cart-drawer ${open ? "is-open" : ""}`} id="cart-drawer" aria-hidden={!open} aria-label="Shopping cart">
-      <LiquidGlass as="div" className="cart-panel" role="dialog" aria-modal="false" aria-labelledby="cart-title" cornerRadius={24} blurAmount={24} displacementScale={36} elasticity={0.12}>
+      <LiquidGlass as="div" className="cart-panel" role="dialog" aria-modal="false" aria-labelledby="cart-title" cornerRadius={24} blurAmount={12} displacementScale={12} elasticity={0} interactive={false}>
         <header>
           <div>
             <p className="eyebrow">Cart preview</p>
