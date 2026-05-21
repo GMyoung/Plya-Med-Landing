@@ -407,14 +407,9 @@ function Header({ shortcut, cartQuantity, cartOpen, onToggleCart }) {
         <a href="#standard">Standard</a>
         <a href="#bundles">Bundles</a>
         <a href="#how">How it works</a>
-        <LiquidGlass
-          as="button"
+        <button
           className="cart-button"
           type="button"
-          cornerRadius={999}
-          blurAmount={12}
-          displacementScale={34}
-          elasticity={0.22}
           aria-expanded={cartOpen}
           aria-controls="cart-drawer"
           onClick={onToggleCart}
@@ -423,7 +418,7 @@ function Header({ shortcut, cartQuantity, cartOpen, onToggleCart }) {
             <path d="M6 6h15l-1.5 8.5H8L6 3H3m6 16.5h.01M18 19.5h.01" />
           </svg>
           Cart <span>{cartQuantity}</span>
-        </LiquidGlass>
+        </button>
       </nav>
     </header>
   );
@@ -445,7 +440,7 @@ function Hero({ activeProduct, onSelectProduct }) {
       <div className="hero-copy reveal">
         <p className="eyebrow">Peptide strips - once daily</p>
         <h1>
-          Peptides in <span className="gradient-phrase">a strip</span> that dissolves in your mouth.
+          Peptides in a <span className="gradient-phrase">strip</span> that dissolves in your mouth.
         </h1>
         <p className="hero-text">
           Viewing {activeName}: {detail.copy}
@@ -735,6 +730,7 @@ function Bundles() {
             blurAmount={18}
             displacementScale={28}
             elasticity={0.12}
+            interactive={false}
           >
             <p className="eyebrow">{bundle.eyebrow}</p>
             <h3>{bundle.title}</h3>
@@ -853,7 +849,7 @@ function FinalRow() {
           <p>No. Store at room temperature, away from heat and moisture.</p>
         </details>
       </div>
-      <LiquidGlass as="form" className="subscribe glass-panel reveal" cornerRadius={24} blurAmount={20} displacementScale={24} elasticity={0.1} onSubmit={(event) => event.preventDefault()}>
+      <LiquidGlass as="form" className="subscribe glass-panel reveal" cornerRadius={24} blurAmount={20} displacementScale={24} elasticity={0.1} interactive={false} onSubmit={(event) => event.preventDefault()}>
         <p className="eyebrow">Be the first to know</p>
         <h2>Quietly useful product notes.</h2>
         <p>New strips, batch COAs, dosing studies. No marketing fluff.</p>
