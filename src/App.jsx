@@ -1,7 +1,16 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { usePretextTypography } from "./usePretextTypography.js";
 
-const asset = (path) => `${import.meta.env.BASE_URL}${path}`;
+const productImages = {
+  bpc157Hero: new URL("../assets/products/bpc-157-hero.png", import.meta.url).href,
+  bpc157: new URL("../assets/products/bpc-157.png", import.meta.url).href,
+  cjc1295: new URL("../assets/products/cjc-1295.png", import.meta.url).href,
+  ghkCu: new URL("../assets/products/ghk-cu.png", import.meta.url).href,
+  thymosinAlpha1: new URL("../assets/products/thymosin-alpha-1.png", import.meta.url).href,
+  nad: new URL("../assets/products/nad.png", import.meta.url).href,
+  glutathione: new URL("../assets/products/glutathione.png", import.meta.url).href,
+  pt141: new URL("../assets/products/pt-141.png", import.meta.url).href,
+};
 
 const products = [
   {
@@ -12,7 +21,7 @@ const products = [
     dose: "500 mcg",
     count: "20 strips",
     price: 179,
-    image: asset("assets/products/bpc-157.png"),
+    image: productImages.bpc157,
     summary: "Regenerative peptide for everyday recovery support.",
     accent: "#0d93c8",
   },
@@ -24,7 +33,7 @@ const products = [
     dose: "150 mcg",
     count: "20 strips",
     price: 139,
-    image: asset("assets/products/cjc-1295.png"),
+    image: productImages.cjc1295,
     summary: "Growth-hormone-supportive peptide for training and recovery.",
     accent: "#0a3b58",
   },
@@ -36,7 +45,7 @@ const products = [
     dose: "3 mg",
     count: "20 strips",
     price: 139,
-    image: asset("assets/products/ghk-cu.png"),
+    image: productImages.ghkCu,
     summary: "Copper-binding peptide for skin and hair support.",
     accent: "#27c4c5",
   },
@@ -49,7 +58,7 @@ const products = [
     dose: "500 mcg",
     count: "20 strips",
     price: 198,
-    image: asset("assets/products/thymosin-alpha-1.png"),
+    image: productImages.thymosinAlpha1,
     summary: "Thymic peptide for year-round immune resilience.",
     accent: "#34ad93",
   },
@@ -61,7 +70,7 @@ const products = [
     dose: "100 mg",
     count: "30 strips",
     price: 118,
-    image: asset("assets/products/nad.png"),
+    image: productImages.nad,
     summary: "Foundational coenzyme for cellular energy support.",
     accent: "#e57233",
   },
@@ -73,7 +82,7 @@ const products = [
     dose: "100 mg",
     count: "30 strips",
     price: 139,
-    image: asset("assets/products/glutathione.png"),
+    image: productImages.glutathione,
     summary: "The body's master antioxidant, in an oral strip.",
     accent: "#5bc7ce",
   },
@@ -85,7 +94,7 @@ const products = [
     dose: "1 mg blend",
     count: "10 strips",
     price: 159,
-    image: asset("assets/products/pt-141.png"),
+    image: productImages.pt141,
     summary: "Adult-use peptide blend for intimacy and connection support.",
     accent: "#8c62b5",
     badge: "18+",
@@ -98,7 +107,7 @@ const bundles = [
     title: "The everyday stack.",
     description: "Three strips for cellular energy, antioxidant support, and recovery.",
     items: ["NAD+", "Glutathione", "BPC-157"],
-    images: [asset("assets/products/nad.png"), asset("assets/products/glutathione.png"), asset("assets/products/bpc-157.png")],
+    images: [productImages.nad, productImages.glutathione, productImages.bpc157],
     price: "$369",
     compare: "$395",
     save: "Save 7%",
@@ -108,7 +117,7 @@ const bundles = [
     title: "Train, recover, repeat.",
     description: "Growth-hormone support and connective-tissue recovery in one rotation.",
     items: ["CJC-1295", "BPC-157", "NAD+"],
-    images: [asset("assets/products/cjc-1295.png"), asset("assets/products/bpc-157.png"), asset("assets/products/nad.png")],
+    images: [productImages.cjc1295, productImages.bpc157, productImages.nad],
     price: "$409",
     compare: "$436",
     save: "Save 6%",
@@ -119,7 +128,7 @@ const bundles = [
     title: "Skin, hair, radiance.",
     description: "Copper-binding peptides paired with the master antioxidant.",
     items: ["GHK-Cu", "Glutathione", "Thymosin Alpha-1"],
-    images: [asset("assets/products/ghk-cu.png"), asset("assets/products/glutathione.png"), asset("assets/products/thymosin-alpha-1.png")],
+    images: [productImages.ghkCu, productImages.glutathione, productImages.thymosinAlpha1],
     price: "$405",
     compare: "$435",
     save: "Save 7%",
@@ -428,7 +437,7 @@ function Header({ shortcut, cartQuantity, cartOpen, onToggleCart }) {
 
 function Hero({ activeProduct, onSelectProduct }) {
   const detail = heroDetails[activeProduct.id] ?? heroDetails[products[0].id];
-  const heroImage = activeProduct.id === "bpc-157" ? asset("assets/products/bpc-157-hero.png") : activeProduct.image;
+  const heroImage = activeProduct.id === "bpc-157" ? productImages.bpc157Hero : activeProduct.image;
   const activeName = activeProduct.shortName ?? activeProduct.name;
 
   return (
