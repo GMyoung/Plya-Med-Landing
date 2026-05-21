@@ -863,10 +863,10 @@ h1 {
   width: min(420px, calc(100vw - 32px));
   max-height: calc(100vh - 40px);
   overflow: auto;
-  border: 1px solid rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(3, 42, 68, 0.16);
   border-radius: 24px;
-  background: rgba(236, 248, 252, 0.98);
-  box-shadow: 0 34px 90px rgba(2, 28, 48, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.82);
+  background: #f3fbfe;
+  box-shadow: 0 34px 90px rgba(2, 28, 48, 0.26);
   padding: 22px;
   transform: translateY(-10px) scale(0.97);
   transform-origin: top right;
@@ -875,20 +875,7 @@ h1 {
     transform 220ms var(--ease-out),
     opacity 180ms ease;
   color: #021f38;
-  backdrop-filter: blur(10px) saturate(130%);
-}
-
-.cart-panel > .liquid-backdrop,
-.cart-panel > .liquid-highlight {
-  display: none;
-}
-
-.cart-panel > .liquid-edge {
-  border-color: rgba(255, 255, 255, 0.78);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    inset 0 -1px 0 rgba(3, 42, 68, 0.12),
-    0 22px 56px rgba(3, 42, 68, 0.16);
+  backdrop-filter: none;
 }
 
 .cart-drawer.is-open .cart-panel {
@@ -903,6 +890,12 @@ h1 {
   gap: 18px;
   border-bottom: 1px solid var(--line);
   padding-bottom: 18px;
+}
+
+.cart-panel .eyebrow {
+  color: #006f98;
+  font-weight: 950;
+  opacity: 1;
 }
 
 .cart-panel h2 {
@@ -938,9 +931,9 @@ h1 {
   grid-template-columns: auto 1fr auto auto auto;
   align-items: center;
   gap: 12px;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(3, 42, 68, 0.12);
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.76);
+  background: #ffffff;
   padding: 12px;
 }
 
@@ -979,9 +972,9 @@ h1 {
 .cart-controls {
   display: inline-flex;
   overflow: hidden;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(3, 42, 68, 0.14);
   border-radius: 999px;
-  background: rgba(235, 248, 252, 0.96);
+  background: #eef8fc;
 }
 
 .cart-controls button,
@@ -1051,7 +1044,7 @@ h1 {
   min-height: 52px;
   border: 0;
   border-radius: 999px;
-  background: linear-gradient(135deg, #034f85, #022f52);
+  background: linear-gradient(135deg, #034f85, #021f38);
   box-shadow: 0 16px 34px rgba(3, 68, 104, 0.28);
   color: white;
   font-size: 16px;
